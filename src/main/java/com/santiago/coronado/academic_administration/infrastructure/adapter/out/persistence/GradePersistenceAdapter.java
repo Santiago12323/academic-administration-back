@@ -28,10 +28,8 @@ public class GradePersistenceAdapter implements GradeRepositoryPort {
 
     @Override
     public List<Grade> findByStudentAndSubject(String studentId, String subjectId) {
-        return jpaGradeRepository.findByStudentIdAndSubjectId(studentId, subjectId)
-                .stream()
-                .map(gradeMapper::toDomain)
-                .collect(Collectors.toList());
+        List<GradeEntity> entities = jpaGradeRepository.findByStudentIdAndSubjectId(studentId, subjectId);
+        return gradeMapper.toDomainList(entities);
     }
 
     @Override

@@ -29,6 +29,11 @@ public class SubjectPersistenceAdapter implements SubjectRepositoryPort {
     }
 
     @Override
+    public void deleteById(String id) {
+        repository.deleteById(id);
+    }
+
+    @Override
     public Page<Subject> findAll(Pageable pageable) {
         return repository.findAll(pageable)
                 .map(mapper::toDomain);

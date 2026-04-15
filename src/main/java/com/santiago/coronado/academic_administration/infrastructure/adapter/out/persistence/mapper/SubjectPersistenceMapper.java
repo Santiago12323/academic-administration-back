@@ -4,13 +4,16 @@ import com.santiago.coronado.academic_administration.domain.model.Subject;
 import com.santiago.coronado.academic_administration.infrastructure.adapter.out.persistence.entity.SubjectEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
-@Mapper(componentModel = "spring", uses = {GradePersistenceMapper.class})
+@Mapper(componentModel = "spring")
 public interface SubjectPersistenceMapper {
 
-    @Mapping(target = "grades", source = "grades")
+    @Named("toDomainBasic")
+    @Mapping(target = "grades", ignore = true)
     Subject toDomain(SubjectEntity entity);
 
-    @Mapping(target = "grades", source = "grades")
+    @Named("toEntityBasic")
+    @Mapping(target = "grades", ignore = true)
     SubjectEntity toEntity(Subject domain);
 }

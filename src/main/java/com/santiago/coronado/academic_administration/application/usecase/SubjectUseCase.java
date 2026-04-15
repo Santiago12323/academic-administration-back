@@ -8,6 +8,8 @@ public interface SubjectUseCase {
 
     Subject getSubjectById(String id);
 
+    void deleteSubject(String id);
+
     Page<Subject> getAllSubjects(int page);
 
     Subject updateSubject(String id, Subject subjectUpdate);

@@ -23,6 +23,8 @@ public class GradeEntity {
     private Double value;
     private LocalDateTime registrationDate;
 
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "student_id")
     private StudentEntity student;

@@ -11,5 +11,7 @@ public interface SubjectRepositoryPort {
 
     Optional<Subject> findById(String id);
 
+    void deleteById(String id);
+
     Page<Subject> findAll(Pageable pageable);
 }

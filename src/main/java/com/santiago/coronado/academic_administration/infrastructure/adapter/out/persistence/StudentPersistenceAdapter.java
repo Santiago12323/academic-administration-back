@@ -24,6 +24,12 @@ public class StudentPersistenceAdapter implements StudentRepositoryPort {
     }
 
     @Override
+    public Page<Student> findByTerm(String term, Pageable pageable){
+        return repository.findByTerm(term, pageable)
+                .map(mapper::toDomain);
+    }
+
+    @Override
     public Optional<Student> findById(String id) {
         return repository.findById(id).map(mapper::toDomain);
     }

@@ -12,12 +12,14 @@ public class Grade {
     private final LocalDateTime registrationDate;
     private final Student student;
     private final Subject subject;
+    private final String description;
 
     @Builder
-    public Grade(String id, Double value, LocalDateTime registrationDate, Student student, Subject subject) {
+    public Grade(String id, Double value, String description, LocalDateTime registrationDate, Student student, Subject subject) {
         validateValue(value);
         this.id = id;
         this.value = value;
+        this.description = description;
         this.registrationDate = registrationDate != null ? registrationDate : LocalDateTime.now();
         this.student = student;
         this.subject = subject;

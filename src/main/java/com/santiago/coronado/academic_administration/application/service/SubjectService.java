@@ -28,6 +28,12 @@ public class SubjectService implements SubjectUseCase {
     }
 
     @Override
+    public void deleteSubject(String id) {
+        subjectRepositoryPort.deleteById(id);
+    }
+
+
+    @Override
     public Page<Subject> getAllSubjects(int page) {
         Pageable pageable = PageRequest.of(page, 5);
         return subjectRepositoryPort.findAll(pageable);

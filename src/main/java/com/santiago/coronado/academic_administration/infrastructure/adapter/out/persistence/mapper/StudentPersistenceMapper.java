@@ -5,15 +5,19 @@ import com.santiago.coronado.academic_administration.infrastructure.adapter.out.
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.Named;
 
-@Mapper(componentModel = "spring",
-        collectionMappingStrategy = CollectionMappingStrategy.ADDER_PREFERRED,
-        uses = {GradePersistenceMapper.class})
+@Mapper(componentModel = "spring")
 public interface StudentPersistenceMapper {
 
-    @Mapping(target = "grades", source = "grades")
+    @Named("toDomainBasic")
+    @Mapping(target = "grades", ignore = true)
     Student toDomain(StudentEntity entity);
 
-    @Mapping(target = "grades", source = "grades")
+    @Named("toDomainWithGrades")
+    Student toDomainWithGrades(StudentEntity entity);
+
+    @Named("toEntityBasic")
+    @Mapping(target = "grades", ignore = true)
     StudentEntity toEntity(Student domain);
 }

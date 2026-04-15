@@ -5,7 +5,10 @@ import com.santiago.coronado.academic_administration.domain.model.Grade;
 import java.util.List;
 
 public interface GradeUseCase {
-    Grade registerGrade(Grade grade);
+
+
+    Grade registerGrade(Double value, String description,
+                        String studentId, String subjectId);
 
     List<Grade> getGradesByStudentAndSubject(String studentId, String subjectId);
 }

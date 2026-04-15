@@ -22,6 +22,17 @@ public class StudentService implements StudentUseCase {
     }
 
     @Override
+    public Page<Student> getAllStudents(int page, String searchTerm) {
+        Pageable pageable = PageRequest.of(page, 5);
+
+        if (searchTerm != null && !searchTerm.trim().isEmpty()) {
+            return studentRepositoryPort.findByTerm(searchTerm, pageable);
+        }
+
+        return studentRepositoryPort.findAll(pageable);
+    }
+
+    @Override
     public Student getStudentById(String id) {
         return studentRepositoryPort.findById(id)
                 .orElseThrow(() -> new BusinessRuleException("Business Rule Violation: Student not found with ID: " + id));

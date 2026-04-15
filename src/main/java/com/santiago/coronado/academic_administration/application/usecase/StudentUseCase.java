@@ -6,6 +6,8 @@ import org.springframework.data.domain.Page;
 public interface StudentUseCase {
     Student createStudent(Student student);
 
+    Page<Student> getAllStudents(int page, String searchTerm);
+
     Student getStudentById(String id);
 
     Page<Student> getAllStudents(int page);

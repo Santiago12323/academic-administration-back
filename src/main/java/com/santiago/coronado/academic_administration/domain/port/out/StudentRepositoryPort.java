@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface StudentRepositoryPort {
     Student save(Student student);
 
+    Page<Student> findByTerm(String term, Pageable pageable);
+
     Optional<Student> findById(String id);
 
     Page<Student> findAll(Pageable pageable);
