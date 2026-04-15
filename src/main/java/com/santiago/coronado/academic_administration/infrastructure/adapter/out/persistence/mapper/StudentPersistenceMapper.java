@@ -2,7 +2,6 @@ package com.santiago.coronado.academic_administration.infrastructure.adapter.out
 
 import com.santiago.coronado.academic_administration.domain.model.Student;
 import com.santiago.coronado.academic_administration.infrastructure.adapter.out.persistence.entity.StudentEntity;
-import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -37,7 +36,7 @@ public class GradePersistenceAdapter implements GradeRepositoryPort {
         return jpaGradeRepository.findByStudentId(studentId)
                 .stream()
                 .map(gradeMapper::toDomain)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
